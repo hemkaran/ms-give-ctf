@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", "./views");
@@ -107,6 +108,21 @@ app.post('/challenge3/buynow', (req,res)=>{
 app.get('/challenge3/buynow', (req,res)=>{
   res.redirect('/challenge3');
 });
+app.get('/challenge4',(req,res)=> {
+  res.render('vignereScript');
+})
+
+// Route to handle Python file download
+app.get('/download', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'Script.py'); 
+  res.download(filePath, 'script.py', (err) => {
+    if (err) {
+      console.error("Error downloading file:", err);
+      res.status(500).send('Error downloading the file.');
+    }
+  });
+});
+
 // Challenge 2 - Anjali, Edit access problem with Private page, "cipher the flag" - Yashank
 // Challenge 3 - Rani, first part of "Add to Cart" system "Find second part"
 // Challenge 4 - Yashank, Script.py with Vignere Cypher
