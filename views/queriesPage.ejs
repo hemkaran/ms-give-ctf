@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      font-size: 1em;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #0073e6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .submit-button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Submit Your Question</h1>
+    <form action="/challenge2/queries/confirmation" method="post">
+      <label for="question">Your Question (required)</label>
+      <textarea id="question" name="question" rows="5" required></textarea>
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

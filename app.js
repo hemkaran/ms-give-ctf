@@ -30,6 +30,37 @@ app.get('/forbidden', (req,res) => {
   res.render('index');
 })
 
+// Challenge 2 -Edit access problem with Private Page
+app.get('/challenge2', (req,res)=>{
+  res.render('challenge2Index');
+})
+
+app.get('/challenge2/edit-article',(req,res) => {
+  res.status(403);
+  res.render('privatePageForbidden');
+})
+
+app.get('/challenge2/edit-article/confirmation',(req,res) => {
+  res.render('privatePage');
+})
+
+app.get('/challenge2/queries',(req,res)=> {
+  res.render('queriesPage');
+})
+
+app.post('/challenge2/queries/confirmation',(req,res)=> {
+  res.status(403);
+  res.render('queriesConfirmationPage');
+})
+
+app.get('/challenge2/contribute',(req,res)=> {
+  res.render('contributePage');
+})
+
+app.post('/challenge2/contribute/confirmation',(req,res)=> {
+  res.render('contributeConfirmationPage');
+})
+
 // Challenge 2 - Anjali, Edit access problem with Private page, "cipher the flag" - Yashank
 // Challenge 3 - Rani, first part of "Add to Cart" system "Find second part"
 // Challenge 4 - Yashank, Script.py with Vignere Cypher
