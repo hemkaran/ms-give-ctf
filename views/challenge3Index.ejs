@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Petshop Pro &mdash; Home</title>
+        <script>
+        let kittenCount = 0;
+        let puppyCount = 0;
+        function addKittens() {
+            kittenCount++;
+            document.getElementById('kittenCountInput').value = kittenCount;
+        }
+        function addPuppies() {
+            puppyCount++;
+            document.getElementById('puppyCountInput').value = puppyCount;
+        }
+    </script>
+	</head>
+	<body>
+		<h1>Petshop Pro</h1>
+        <p><%= flag %>
+        </p>
+		<form action="/challenge3/checkout" method="post">
+            <table>
+                <tr>
+                
+                    <td><img src="kitten.jpg" width="300" height="168"></td>
+                    <td><img src="puppy.jpg" width="300" height="168"></td>
+                
+                </tr>
+                <tr>
+                
+                    <td><b>Kitten</b></td>
+                
+                    <td><b>Puppy</b></td>
+                
+                </tr>
+                <tr>
+                
+                    <td>8"x10" color glossy photograph of a kitten.</td>
+                
+                    <td>8"x10" color glossy photograph of a puppy.</td>
+                
+                </tr>
+                <tr>
+                
+                    <td>
+                        <!-- <input type="checkbox" name="selectedItems" value="kitten"> Select -->
+                        <input type="hidden" id="kittenCountInput" name="kittenCount" value="0" /> <!-- Hidden input -->
+                    <button type="button" onclick="addKittens()">Add</button>
+                        
+                    </td>
+                
+                    <td>
+                        <input type="hidden" id="puppyCountInput" name="puppyCount" value="0" /> <!-- Hidden input -->
+                        <button type="button" onclick="addPuppies()">Add</button>
+                        
+                    </td>
+                
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <button type="submit">Checkout</button>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+		
+	</body>
+</html>

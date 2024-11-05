@@ -61,6 +61,52 @@ app.post('/challenge2/contribute/confirmation',(req,res)=> {
   res.render('contributeConfirmationPage');
 })
 
+//challenge 3
+const items = {
+  kitten: { id: 0, name: "Kitten", desc: "8\"x10\" color glossy photograph of a kitten.", logo: "kitten.jpg", price: 8.95 },
+  puppy: { id: 1, name: "Puppy", desc: "8\"x10\" color glossy photograph of a puppy.", logo: "puppy.jpg", price: 7.95 },
+};
+
+app.get('/challenge3', (req,res)=>{
+  res.render('challenge3Index', {flag: ""});
+})
+
+app.post('/challenge3/checkout', (req,res)=>{
+  const {kittenCount, puppyCount} = req.body;
+  const value = [];
+   if (kittenCount && parseInt(kittenCount, 10) > 0) {
+    for (let i = 0; i < parseInt(kittenCount, 10); i++) {
+      value.push([items.kitten.id, items.kitten]);
+    }
+  }
+  if (puppyCount && parseInt(puppyCount, 10) > 0) {
+    for (let i = 0; i < parseInt(puppyCount, 10); i++) {
+      value.push([items.puppy.id, items.puppy]);
+    }
+  }
+
+  res.render('checkout', {value});
+})
+
+app.post('/challenge3/buynow', (req,res)=>{
+  try{
+    const cart = req.body.cart;
+    const items = JSON.parse(cart);
+    const totalPrice = items.reduce((sum, item) => {
+      return sum + (item[1].price || 0);
+    }, 0);
+    if(totalPrice == 0 && items.length > 0){
+      res.render('challenge3Index', {flag: "zdfxghjhxfguhi"});
+    }
+  } catch(error) {
+    res.redirect('/forbidden');
+  }
+  res.redirect('/challenge3');
+});
+
+app.get('/challenge3/buynow', (req,res)=>{
+  res.redirect('/challenge3');
+});
 // Challenge 2 - Anjali, Edit access problem with Private page, "cipher the flag" - Yashank
 // Challenge 3 - Rani, first part of "Add to Cart" system "Find second part"
 // Challenge 4 - Yashank, Script.py with Vignere Cypher
