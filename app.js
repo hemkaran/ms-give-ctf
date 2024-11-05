@@ -114,8 +114,8 @@ app.get('/challenge4',(req,res)=> {
 
 // Route to handle Python file download
 app.get('/download', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'Script.py'); 
-  res.download(filePath, 'script.py', (err) => {
+  const filePath = path.join(__dirname, 'public', 'well_done.png'); 
+  res.download(filePath, 'well_done.png', (err) => {
     if (err) {
       console.error("Error downloading file:", err);
       res.status(500).send('Error downloading the file.');
