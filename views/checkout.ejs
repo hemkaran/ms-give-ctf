@@ -18,15 +18,15 @@
 				<% value.forEach(itemArray => { %>
 				  <% const item = itemArray[1]; %>
 				  <tr>
-					<td><%= item.name %></td>
-					<td><%= item.desc %></td>
-					<td><%= item.price.toFixed(2) %></td>
+					<td><%= item?.name %></td>
+					<td><%= item?.desc %></td>
+					<td><%= item?.price?.toFixed(2) %></td>
 				  </tr>
-				  <% totalPrice += item.price; %>
+				  <% totalPrice += item?.price; %>
 				<% }); %>
 			  </tbody>
 		</table>
-		<p><b>Total Price: $<%= totalPrice.toFixed(2) %></b></p>
+		<p><b>Total Price: $<%= totalPrice?.toFixed(2) %></b></p>
 		<form action="/challenge3/buynow" method="POST">
 			<input type="hidden" name="cart" value='<%= JSON.stringify(value) %>'>
 			<p><input type="submit" value="Buy now"></p>
