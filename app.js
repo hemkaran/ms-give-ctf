@@ -33,34 +33,53 @@ app.get('/forbidden', (req,res) => {
 
 // Challenge 2 -Edit access problem with Private Page
 app.get('/challenge2', (req,res)=>{
-  res.render('challenge2Index');
+  res.render('challenge2/challenge2Index');
 })
 
-app.get('/challenge2/edit-article',(req,res) => {
+
+app.get('/challenge2/page/1', (req,res)=>{
+  res.render('challenge2/page1');
+})
+
+app.get('/challenge2/page/1/edit', (req,res)=>{
+  res.render('challenge2/editPage1');
+})
+
+app.get('/challenge2/page/2', (req,res)=>{
+  res.render('challenge2/page2');
+})
+
+app.get('/challenge2/page/2/edit', (req,res)=>{
+  res.render('challenge2/editPage2');
+})
+
+
+
+app.get('/challenge2/page/3',(req,res) => {
   res.status(403);
-  res.render('privatePageForbidden');
+  res.render('challenge2/privatePageForbidden');
 })
 
-app.get('/challenge2/edit-article/confirmation',(req,res) => {
-  res.render('privatePage');
+app.get('/challenge2/page/3/edit',(req,res) => {
+  res.render('challenge2/privatePage');
 })
 
-app.get('/challenge2/queries',(req,res)=> {
-  res.render('queriesPage');
-})
+// app.get('/challenge2/queries',(req,res)=> {
+//   res.render('queriesPage');
+// })
 
-app.post('/challenge2/queries/confirmation',(req,res)=> {
-  res.status(403);
-  res.render('queriesConfirmationPage');
-})
+// app.post('/challenge2/queries/confirmation',(req,res)=> {
+//   res.status(403);
+//   res.render('queriesConfirmationPage');
+// })
 
-app.get('/challenge2/contribute',(req,res)=> {
-  res.render('contributePage');
-})
+// app.get('/challenge2/contribute',(req,res)=> {
+//   res.render('contributePage');
+// })
 
-app.post('/challenge2/contribute/confirmation',(req,res)=> {
-  res.render('contributeConfirmationPage');
-})
+// app.post('/challenge2/contribute/confirmation',(req,res)=> {
+//   res.render('contributeConfirmationPage');
+// })
 
 //challenge 3
 const items = {
