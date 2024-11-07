@@ -69,7 +69,7 @@ const items = {
 };
 
 app.get('/challenge3', (req,res)=>{
-  res.render('challenge3Index', {flag: ""});
+  res.render('challenge3Index');
 })
 
 app.post('/challenge3/checkout', (req,res)=>{
@@ -96,13 +96,16 @@ app.post('/challenge3/buynow', (req,res)=>{
     const totalPrice = items.reduce((sum, item) => {
       return sum + (item[1].price || 0);
     }, 0);
+    const encodedFlag = "01011010 01101101 01111000 01101000 01011010 00110011 01110011 01111000 01100100 01000100 01010110 01100110 01001110 01000111 01111000 01110011 01011000 01111010 01000110 01110101 01011000 00110011 01010010 01101111 01001101 00110001 00111001 01101010 01001110 01001000 01001010 00110000 01100110 01010001 00111101 00111101";
     if(totalPrice == 0 && items.length > 0){
-      res.render('challenge3Index', {flag: "zdfxghjhxfguhi"});
+      res.render('challenge3Flag', {flag: encodedFlag});
+    }
+    else {
+    res.render('paymentStatus', {value: items, totalPrice});
     }
   } catch(error) {
-    res.redirect('/forbidden');
+    res.render('paymentStatus', {value: [], totalPrice: 0});
   }
-  res.redirect('/challenge3');
 });
 
 app.get('/challenge3/buynow', (req,res)=>{

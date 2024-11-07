@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Petshop Pro &mdash; Checkout</title>
+	</head>
+	<body>
+		<h1>Checkout</h1>
+		<ul>
+            <% value.forEach(itemArray => { %>
+                <% const item = itemArray[1]; %>
+                <li>$<%= item?.price %> &mdash; <b><%= item?.name %></b></li>
+              <% }); %>
+		</ul>
+		
+		<p><b>Total: $<%= totalPrice %></b></p>
+		<i>Payments temporarily disabled</i>
+
+        <p><a href="/challenge3">Go back to the Petshop</a></p>
+	</body>
+</html>
