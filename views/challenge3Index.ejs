@@ -1,24 +1,24 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Petshop Pro &mdash; Home</title>
+		<title>The Petshop &mdash; Home</title>
         <script>
-        let kittenCount = 0;
-        let puppyCount = 0;
-        function addKittens() {
-            kittenCount++;
-            document.getElementById('kittenCountInput').value = kittenCount;
-            document.getElementById('kittenCountDisplay').innerText = `${kittenCount} kitten added!`;
-        }
-        function addPuppies() {
-            puppyCount++;
-            document.getElementById('puppyCountInput').value = puppyCount;
-            document.getElementById('puppyCountDisplay').innerText = `${puppyCount} puppy added!`;
-        }
-    </script>
+            let kittenCount = 0;
+            let puppyCount = 0;
+            function addKittens() {
+                kittenCount++;
+                document.getElementById('kittenCountInput').value = kittenCount;
+                document.getElementById('kittenCountDisplay').innerText = `${kittenCount} kitten added!`;
+            }
+            function addPuppies() {
+                puppyCount++;
+                document.getElementById('puppyCountInput').value = puppyCount;
+                document.getElementById('puppyCountDisplay').innerText = `${puppyCount} puppy added!`;
+            }
+        </script>
 	</head>
 	<body>
-		<h1>Petshop Pro</h1>
+		<h1>The Petshop</h1>
 		<form action="/challenge3/checkout" method="post">
             <table>
                 <tr>
