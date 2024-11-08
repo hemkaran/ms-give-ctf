@@ -15,10 +15,11 @@ def vforVigenere(argument):
     print(key)
 
 def get():
-    if ("gdpqw" not in encflag):
-        return 1
+    if ("gdpqw" in encflag):
+        # TODO: decode the encflag
+        return 0
     else:
-        encflag="aelt{someww4_fsrt5v}"
+        return 1
 
 print("Welcome to the script...")
 
